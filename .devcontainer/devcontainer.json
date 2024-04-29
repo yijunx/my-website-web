@@ -1,0 +1,28 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/python-3
+{
+  "name": "my-website-web",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/opt/yijunx/code",
+
+  // Set *default* container specific settings.json values on container create.
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "bin/bash"
+          }
+        },
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+      },
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dsznajder.es7-react-js-snippets"
+      ]
+    }
+  },
+  "remoteUser": "yijunx"
+}

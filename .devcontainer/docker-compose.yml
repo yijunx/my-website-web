@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/opt/yijunx/code
+      - ~/etc/localtime:/opt/yijunx/etc/localtime
+      - ~/etc/timezone:/opt/yijunx/etc/timezone
+    command: ["tail -f /dev/null"]
+
+
