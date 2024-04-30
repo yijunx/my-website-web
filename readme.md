@@ -17,3 +17,9 @@ now lets create some components
 ---
 
 then work on the login
+
+-- then practice on the tailwindstuff
+
+-- then work on a simple be..
+
+this be will be first in python first..
