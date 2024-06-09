@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.flex-center-example {
+    @apply flex justify-center items-center;
+}
+
+.flex-start-example {
+    @apply flex justify-start items-start;
+}
+
+.flex-end-example {
+    @apply flex justify-end items-center;
+}
+
+.flex-between-example {
+    @apply flex justify-between items-center;
+}

@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  app:
+  frontend:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
@@ -10,5 +10,9 @@ services:
       - ~/etc/localtime:/opt/yijunx/etc/localtime
       - ~/etc/timezone:/opt/yijunx/etc/timezone
     command: ["tail -f /dev/null"]
+    networks:
+      - my-website
 
-
+networks:
+  my-website:
+    external: true

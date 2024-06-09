@@ -13,10 +13,6 @@ function RootLayout({ children }) {
     <html lang='en'>
         <body>
             <Provider>
-                <div className='h-20'></div>
-                {/* <div className='main'>
-                    <div className='gradient' />
-                </div> */}
                 <Nav></Nav>
                 <main className='app'>
                     <Suspense fallback={<div>Loading...</div>}>

@@ -3,7 +3,7 @@
 {
   "name": "my-website-web",
   "dockerComposeFile": "docker-compose.yml",
-  "service": "app",
+  "service": "frontend",
   "workspaceFolder": "/opt/yijunx/code",
 
   // Set *default* container specific settings.json values on container create.

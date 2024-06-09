@@ -1,6 +1,17 @@
-import Link from "next/link"
+"use client"
+// import Link from "next/link"
+import { signIn, useSession } from "next-auth/react";
+import { useEffect } from "react";
 
-function Home() {
+const Home = () =>{
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (session?.error === "RefreshAccessTokenError") {
+      signIn(); // Force sign in to hopefully resolve error
+    }
+  }, [session]);
+
   return (
     <section className="">
       <h1 className="">
@@ -9,7 +20,8 @@ function Home() {
         <span className="">Stuff here</span>
       </h1>
 
-      <p className="desc text-center">some stuff here</p>
+      <p className="desc text-center">this is your session</p>
+      <div>{JSON.stringify(session)}</div>
     </section>
   )
 }
