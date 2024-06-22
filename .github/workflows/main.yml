@@ -1,0 +1,26 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - "dev"
+      - "main"
+
+jobs:
+  build:
+    environment: my-website
+    runs-on: ubuntu-latest
+    steps:
+    - name: trigger-my-jenkins
+      env: # Or as an environment variable
+        JENKINSUSERNAME: ${{ secrets.JENKINSUSERNAME }}
+        JENKINSPASSWORD: ${{ secrets.JENKINSPASSWORD }}
+        JENKINSDOMAIN: ${{ secrets.JENKINSDOMAIN }}
+        JENKINSPIPELINETOKEN: ${{ secrets.JENKINSPIPELINETOKEN }}
+        BRANCH: ${{ github.ref_name }}
+        GIT_REPO: ${{ github.repository }}
+      run: | 
+        echo the branch is ${BRANCH} and repo is ${GIT_REPO}
+        curl \
+        --user ${JENKINSUSERNAME}:${JENKINSPASSWORD} \
+        "https://${JENKINSDOMAIN}/job/generic-service-auto/buildWithParameters?token=${JENKINSPIPELINETOKEN}&BRANCH=${BRANCH}&GIT_REPO=${GIT_REPO}&SERVICE_NAME=SAME_AS_REPO"
