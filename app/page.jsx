@@ -29,6 +29,8 @@ const Home = () =>{
       <div>{JSON.stringify(session)}</div>
       <hr />
       <div>lol is {lol}</div>
+      <hr />
+      <div>lol directly is {process.env.NEXT_PUBLIC_VARIABLE}</div>
     </section>
   )
 }
