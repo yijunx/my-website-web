@@ -23,3 +23,5 @@ then work on the login
 -- then work on a simple be..
 
 this be will be first in python first..
+
+-- todo this file needs to updated
