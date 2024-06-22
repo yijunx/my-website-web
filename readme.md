@@ -24,4 +24,4 @@ then work on the login
 
 this be will be first in python first..
 
--- todo this file needs to updated, lo
+-- todo this file needs to updated, lol
