@@ -15,6 +15,8 @@ const Home = () =>{
     }
   }, [session]);
 
+  const lol = process.env.NEXT_PUBLIC_VARIABLE
+
   return (
     <section className="">
       <h1 className="">
@@ -26,7 +28,7 @@ const Home = () =>{
       <p className="desc text-center">this is your session</p>
       <div>{JSON.stringify(session)}</div>
       <hr />
-      <div>NEXT_PUBLIC_VARIABLE is at {process.env.NEXT_PUBLIC_VARIABLE}</div>
+      <div>lol is {lol}</div>
     </section>
   )
 }
