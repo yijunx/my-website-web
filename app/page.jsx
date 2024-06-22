@@ -3,8 +3,11 @@
 import { signIn, useSession } from "next-auth/react";
 import { useEffect } from "react";
 
+
 const Home = () =>{
   const { data: session } = useSession();
+
+
 
   useEffect(() => {
     if (session?.error === "RefreshAccessTokenError") {
@@ -22,6 +25,8 @@ const Home = () =>{
 
       <p className="desc text-center">this is your session</p>
       <div>{JSON.stringify(session)}</div>
+      <hr />
+      <div>NEXT_PUBLIC_VARIABLE is at {process.env.NEXT_PUBLIC_VARIABLE}</div>
     </section>
   )
 }
