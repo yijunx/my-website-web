@@ -1,5 +1,4 @@
 import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
 import KeycloakProvider from "next-auth/providers/keycloak";
 
 import { userLogin } from "@utils/backend";
@@ -66,6 +65,9 @@ const handler = NextAuth({
       issuer: process.env.KEYCLOAK_ISSUER,
     }),
   ],
+  // pages: {
+  //   signIn: "/signin",
+  // },
   callbacks: {
     async jwt({ token, user, account, profile }) {
       // Initial sign in
