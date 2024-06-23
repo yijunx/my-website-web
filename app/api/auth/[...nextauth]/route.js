@@ -6,9 +6,6 @@ import { userLogin } from "@utils/backend";
 
 const refreshAccessToken = async (token) => {
   try {
-    console.log("i am in refresh!!!");
-    console.log(token.refreshTokenExpires);
-    console.log(Date.now());
     if (Date.now() > token.refreshTokenExpires) throw Error;
 
     const details = {
@@ -33,14 +30,11 @@ const refreshAccessToken = async (token) => {
       },
       body: formData,
     });
-    console.log(response);
+
     const refreshedTokensResp = await response.json();
     if (!response.ok) {
-      console.log("response not ok");
       throw refreshedTokensResp;
     }
-    console.log("refresh token resp is");
-    console.log(refreshedTokensResp);
     return {
       ...token,
       accessToken: refreshedTokensResp.access_token,
@@ -76,16 +70,6 @@ const handler = NextAuth({
     async jwt({ token, user, account, profile }) {
       // Initial sign in
       if (account && user) {
-        // token.accessToken = account.accessToken;
-        // token.refreshToken = account.refreshToken;
-        // token.accessTokenExpires = account.expires_at * 1000;
-        // token.refreshTokenExpired =
-        //   Date.now() + account.refresh_expires_in * 1000;
-        // token.user = user;
-        // return token;
-        console.log(account);
-        console.log(user);
-        console.log(token);
         const stuff = {
           accessToken: account.access_token,
           accessTokenExpires: account.expires_at * 1000, // turn it in miliseconds
@@ -93,8 +77,6 @@ const handler = NextAuth({
           refreshTokenExpires: Date.now() + account.refresh_expires_in * 1000, // turn it into miliseconds
           user,
         };
-        console.log("this is the stuff");
-        console.log(stuff);
         return stuff;
       }
 
@@ -102,9 +84,6 @@ const handler = NextAuth({
       if (Date.now() < token.accessTokenExpires) {
         return token;
       }
-
-      // Access token has expired, try to update it
-      console.log("expired, going to refresh");
       return refreshAccessToken(token);
     },
     async session({ session, user, token }) {
